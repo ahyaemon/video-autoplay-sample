@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>video autoplay sample</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #video {
+            max-width: 80vw;
+            max-height: 80vh;
+        }
+
+        #unmute-button {
+            margin-top: 20px;
+            width: 100px;
+            height: 40px;
+        }
+    </style>
 </head>
 <body>
-
+<div class="video-container">
+    <video id="video" muted autoplay playsinline>
+        <source src="sample-5s.mp4">
+    </video>
+    <button id="unmute-button" type="button">MUTE 解除</button>
+</div>
+<script>
+    const unmuteButton = document.querySelector('#unmute-button')
+    const video = document.querySelector('#video')
+    unmuteButton.addEventListener('click', () => {
+        video.muted = false
+    })
+</script>
 </body>
 </html>
